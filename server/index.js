@@ -14,8 +14,10 @@ app.use(
   })
 );
 //middlewares
-const checkForSession = require("./middlewares/checkForSession");
-app.use(checkForSession);
+/*
+  NOTE: all routes, including middlewares, have been defined in a seperate
+  module at path "./routes/index.js"
+*/
 //routes
 const routes = require("./routes");
 app.use("/api/", routes);

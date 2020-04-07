@@ -4,9 +4,9 @@ const swag = Router();
 
 //controllers
 const basePath = "/swag";
-const swagController = require("./controllers/swagController");
+const swagController = require("../controllers/swagController");
 
-swag.use(require("./middlewares/checkForSession"));
+swag.use(require("../middlewares/checkForSession"));
 
 swag.get("/", swagController.getAll);
 
