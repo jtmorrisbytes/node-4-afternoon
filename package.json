@@ -17,9 +17,14 @@
     "react-scripts": "1.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "startServer": "node server/index.js",
+    "startClient": "react-scripts start",
+    "buildClient": "react-scripts build",
+    "testClient": "react-scripts test --env=jsdom",
+    "testServer": "npx cross-env NODE_ENV='test' newman run postman_collection",
+    "testServer:watch": "nodemon --watch server --watch server/controllers --exec \"npm run testServer\"",
+    "dev": "concurrently --kill-others \"npm run testServer\" \"npm run startClient\"",
+    "dev:watch": "concurrently --kill others \"npm run testServer:watch\" \"npm run startClient\"",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3001",
