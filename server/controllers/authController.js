@@ -24,7 +24,7 @@ module.exports = {
         password,
       });
       id++;
-      req.session.username = username;
+      req.session.user.username = username;
       res.json(req.session.user);
     } else {
       res.status(500);
