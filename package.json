@@ -5,6 +5,10 @@
   "main": "server/index.js",
   "dependencies": {
     "axios": "^0.16.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "morgan": "^1.10.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-icons": "^2.2.5",
@@ -18,13 +22,14 @@
   },
   "scripts": {
     "startServer": "node server/index.js",
+    "startServer:watch": "nodemon",
     "startClient": "react-scripts start",
     "buildClient": "react-scripts build",
     "testClient": "react-scripts test --env=jsdom",
     "testServer": "npx cross-env NODE_ENV='test' newman run postman_collection",
     "testServer:watch": "nodemon --watch server --watch server/controllers --exec \"npm run testServer\"",
     "dev": "concurrently --kill-others \"npm run testServer\" \"npm run startClient\"",
-    "dev:watch": "concurrently --kill others \"npm run testServer:watch\" \"npm run startClient\"",
+    "dev:watch": "concurrently --kill others \"npm run testServer:watch\" \"npm run startServer:watch\" \"npm run startClient\"",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3001",
