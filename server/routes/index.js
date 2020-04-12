@@ -22,5 +22,5 @@ const cartRouter = require("./cart");
 routes.use(cartRouter.basePath, cartRouter.cart);
 routes.use(authRouter.basePath, authRouter.auth);
 routes.use(swagRouter.basePath, swagRouter.swag);
-
+routes.use("/search", require("../controllers/searchController").search);
 module.exports = routes;

@@ -41,6 +41,7 @@ module.exports = {
   },
   checkout: function (req, res) {
     req.session.user.cart = [];
+    req.session.user.total = 0;
     res.status(200).json(req.session.user);
   },
 };
