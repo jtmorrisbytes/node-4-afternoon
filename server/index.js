@@ -2,8 +2,10 @@
 require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
+const path = require("path");
 //app setup
 const app = express();
+app.use(express.static(path.join(path.dirname(__dirname), "build")));
 app.use(morgan("dev"));
 
 //middlewares
